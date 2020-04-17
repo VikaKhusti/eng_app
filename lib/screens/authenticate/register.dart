@@ -44,6 +44,9 @@ class _RegisterState extends State<Register> {
             children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Enter email'
+                ),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() => email = val );
@@ -51,6 +54,9 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: InputDecoration(
+                    labelText: 'Enter password'
+                ),
                 obscureText: true,
                 validator: (val) => val.length < 6 ? 'Enter a password 6+ chars long' : null,
                 onChanged: (val) {
@@ -66,7 +72,7 @@ class _RegisterState extends State<Register> {
                 ),
                 onPressed: () async {
                   if(_formKey.currentState.validate()) {
-                    dynamic result = await _auth.RegisterWithEmailAndPassword(
+                    dynamic result = await _auth.registerWithEmailAndPassword(
                         email, password);
                     if (result == null) {
                       setState(() => error = 'Please, suply a valid email!');
