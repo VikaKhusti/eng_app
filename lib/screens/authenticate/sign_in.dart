@@ -1,4 +1,5 @@
 import 'package:engapp/services/auth.dart';
+import 'package:engapp/shared/loading.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -14,6 +15,7 @@ class _SignInState extends State<SignIn> {
 
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  bool loading = false;
 
   //text field state
   String email = '';
@@ -22,7 +24,7 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Colors.deepOrange[100],
       appBar: AppBar(
         backgroundColor: Colors.deepOrange[800],
@@ -45,7 +47,15 @@ class _SignInState extends State<SignIn> {
             SizedBox(height: 20.0),
             TextFormField(
               decoration: InputDecoration(
-                  labelText: 'Enter email'
+                hintText: 'Enter email',
+                fillColor: Colors.white,
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white, width: 2.0)
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepOrange[800], width: 2.2)
+                ),
               ),
               validator: (val) => val.isEmpty ? 'Enter an email' : null,
               onChanged: (val) {
@@ -55,7 +65,15 @@ class _SignInState extends State<SignIn> {
             SizedBox(height: 20.0),
             TextFormField(
               decoration: InputDecoration(
-                  labelText: 'Enter password'
+                hintText: 'Enter password',
+                fillColor: Colors.white,
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white, width: 2.0)
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepOrange[800], width: 2.2)
+                ),
               ),
               validator: (val) => val.length < 6 ? 'Enter a password 6+ chars long' : null,
               obscureText: true,
@@ -72,9 +90,14 @@ class _SignInState extends State<SignIn> {
               ),
               onPressed: () async {
                 if(_formKey.currentState.validate()) {
+                  setState(() => loading = true);
                   dynamic result = await _auth.signInWithEmailAndPassword(email, password);
                   if (result == null) {
-                    setState(() => error = 'Could not sign in!');
+                    setState(()
+                        {
+                          error = 'Could not sign in!';
+                          loading = false;
+                        });
                   }
                 }
               },

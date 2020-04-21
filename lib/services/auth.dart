@@ -1,6 +1,5 @@
 import 'package:engapp/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/animation.dart';
 
 class AuthService {
 
