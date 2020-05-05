@@ -36,7 +36,7 @@ class AuthService {
       FirebaseUser user = result.user;
 
       //create a new document with words for the user with uid
-      await DatabaseService(uid: user.uid).updateUserWord('word', 'translate', 'synonyms');
+      await DatabaseService(uid: user.uid).addUserWord('do', 'робити', 'act, make');
 
 
       return _userFromFirebaseUser(user);
