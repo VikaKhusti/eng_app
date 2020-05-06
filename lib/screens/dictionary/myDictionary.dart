@@ -96,7 +96,7 @@ class _MyDictionaryState extends State<MyDictionary> {
                            'synonyms': synonyms,
                          }
                        );
-
+                      Navigator.pop(context);
                    },)
                 ]
             ).show();

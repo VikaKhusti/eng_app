@@ -20,6 +20,7 @@ class _WordsListState extends State<WordsList> {
         itemBuilder: (context, index) {
           return WordCard(word: words[index]);
         },
+
     );
   }
 }
