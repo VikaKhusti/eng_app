@@ -6,6 +6,7 @@ class DatabaseService {
   final String uid;
   DatabaseService({this.uid});
 
+
   //collection reference
   final CollectionReference wordsCollection = Firestore.instance.collection('words');
 
