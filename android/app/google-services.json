@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "860713241195",
+    "firebase_url": "https://daily-english-512ab.firebaseio.com",
+    "project_id": "daily-english-512ab",
+    "storage_bucket": "daily-english-512ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860713241195:android:32ecf3ac97753660537f2e",
+        "android_client_info": {
+          "package_name": "com.example.engapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860713241195-ngk1ruqpn8juje0l6ftf3kii1k266udu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEMakH05iq_WdUtz0YcSxaXfYeXjqpCEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860713241195-ngk1ruqpn8juje0l6ftf3kii1k266udu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
