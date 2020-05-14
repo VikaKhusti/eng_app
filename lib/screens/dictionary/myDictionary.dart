@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:engapp/models/word.dart';
+import 'package:engapp/models/user.dart';
 import 'package:engapp/screens/dictionary/words_list.dart';
 import 'package:engapp/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,21 +19,14 @@ class _MyDictionaryState extends State<MyDictionary> {
   String translation;
   String synonyms;
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  getCurrentUser() async {
-    final FirebaseUser user = await _auth.currentUser();
-    final uid = user.uid;
-    // Similarly we can get email as well
-    //final uemail = user.email;
-    print(uid);
-  }
-
-  String uid = getCurrentUser();
 
   @override
   Widget build(BuildContext context) {
+
+    final user = Provider.of<User>(context);
+
     return StreamProvider<List<Word>>.value(
-      value: DatabaseService().words,
+      value: DatabaseService(uid: user.uid).words,
       child: Scaffold(
         backgroundColor: Colors.deepOrange[100],
         appBar: AppBar(
@@ -99,11 +93,8 @@ class _MyDictionaryState extends State<MyDictionary> {
               ),
                  buttons: [
                    DialogButton(child: Text('Add'), onPressed: () {
-                     String uid = getCurrentUser();
-                     print(getCurrentUser().toString());
                      if( word != null && translation != null && synonyms != null)
-
-                       Firestore.instance.collection('words').document(uid)
+                       Firestore.instance.collection('words').document(user.uid).collection('words').document(word)
                          .setData(
                          {
                            'word': word,

@@ -10,8 +10,8 @@ class DatabaseService {
   //collection reference
   final CollectionReference wordsCollection = Firestore.instance.collection('words');
 
-  Future addUserWord(String word, String translation, String synonyms) async {
-    return await wordsCollection.document(uid).setData({
+  Future updateUserData(String word, String translation, String synonyms) async {
+    return await wordsCollection.document(uid).collection("words").document(word).setData({
       'word': word,
       'translate': translation,
       'synonyms': synonyms,
@@ -29,10 +29,19 @@ class DatabaseService {
     }).toList();
   }
 
+  //get user id
+
 
   //get words stream
   Stream<List<Word>> get words {
-    return wordsCollection.snapshots()
+    return wordsCollection.document(uid).collection("words").snapshots()
     .map(_wordsListFromSnapshot) ;
   }
+
+
+  //get user doc stream
+  Stream<DocumentSnapshot> get userData{
+    return wordsCollection.document(uid).snapshots();
+  }
+
 }

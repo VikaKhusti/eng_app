@@ -64,89 +64,89 @@ class _RegisterState extends State<Register> {
 
               padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 60.0),
                 child: Form(
-              key: _formKey,
-              child: Column(
+                  key: _formKey,
+                  child: Column(
 
                   children: <Widget>[
-                  SizedBox(height: 90.0),
-                  TextFormField(
+                    SizedBox(height: 90.0),
+                    TextFormField(
 
-                  decoration: InputDecoration(
-                  hintText: ' Enter email',
+                    decoration: InputDecoration(
+                    hintText: ' Enter email',
 
-                  fillColor: Colors.lightBlue[50],
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.0),
+                    fillColor: Colors.lightBlue[50],
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.all(Radius.circular(30))
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.lightBlue[200], width: 2.2)
+                    ),
+                    ),
+                    validator: (val) => val.isEmpty ? 'Enter an email' : null,
+                    onChanged: (val) {
+                    setState(() => email = val );
+                    },
+                ),
+                    SizedBox(height: 30.0),
+                    TextFormField(
+                    decoration: InputDecoration(
+                    hintText: ' Enter password',
+                    fillColor: Colors.lightBlue[50],
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white, width: 2.0),
                       borderRadius: BorderRadius.all(Radius.circular(30))
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.lightBlue[200], width: 2.2)
-                  ),
-                  ),
-                  validator: (val) => val.isEmpty ? 'Enter an email' : null,
-                  onChanged: (val) {
-                  setState(() => email = val );
-                  },
-                ),
-                SizedBox(height: 30.0),
-                TextFormField(
-                decoration: InputDecoration(
-                hintText: ' Enter password',
-                fillColor: Colors.lightBlue[50],
-                filled: true,
-                enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(30))
-                ),
-                focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.lightBlue[200], width: 2.2)
-                ),
-                ),
-                  obscureText: true,
-                  validator: (val) => val.length < 6 ? 'Enter a password 6+ chars long' : null,
-                  onChanged: (val) {
-                    setState(() => password = val );
-                  },
-                ),
-                SizedBox(height: 40.0),
-                RaisedButton(
-                color: Colors.lightBlue[900],
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                ),
-                child: Text(
-                'Register',
-                style: TextStyle(
-                color: Colors.white,
-                fontSize: 15.0,
-                ),
-                ),
-                onPressed: () async {
-                  if(_formKey.currentState.validate()) {
-                    setState(() => loading = true);
-                    dynamic result = await _auth.registerWithEmailAndPassword(
-                        email, password);
-                    if (result == null) {
-                      setState(()
-                          {
-                            error = 'Please, suply a valid email!';
-                            loading = false;
-                          });
-                    }
-                  }
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.lightBlue[200], width: 2.2)
+                    ),
+                    ),
+                      obscureText: true,
+                      validator: (val) => val.length < 6 ? 'Enter a password 6+ chars long' : null,
+                      onChanged: (val) {
+                        setState(() => password = val );
+                      },
+                    ),
+                    SizedBox(height: 40.0),
+                    RaisedButton(
+                    color: Colors.lightBlue[900],
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(18.0)),
+                    ),
+                      child: Text(
+                      'Register',
+                      style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15.0,
+                      ),
+                      ),
+                      onPressed: () async {
+                        if(_formKey.currentState.validate()) {
+                          setState(() => loading = true);
+                          dynamic result = await _auth.registerWithEmailAndPassword(
+                              email, password);
+                          if (result == null) {
+                            setState(()
+                                {
+                                  error = 'Please, suply a valid email!';
+                                  loading = false;
+                                });
+                          }
+                        }
                 },
               ),
-              SizedBox(height: 12.0),
-              Text(
-                error,
-                style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 14.0,
-                ),
-              )
-            ],
+                    SizedBox(height: 12.0),
+                    Text(
+                      error,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 14.0,
+                      ),
+                    )
+                  ],
           ),
         ),
       ),
