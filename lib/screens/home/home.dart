@@ -9,11 +9,11 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrange[100],
+      backgroundColor: Colors.lightBlue[100],
       drawer: NavDrawer(),
       appBar: AppBar(
         title: Text('Daily English'),
-        backgroundColor: Colors.deepOrange[800],
+        backgroundColor: Colors.lightBlue[200],
         elevation: 0.0,
         actions: <Widget>[
           FlatButton.icon(
