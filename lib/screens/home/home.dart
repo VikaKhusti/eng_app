@@ -120,7 +120,6 @@ class TaskTitle extends StatelessWidget{
         children: [
           Image.network(
             imgUrl
-              //"https://i.ytimg.com/vi/OXuIqaeg0SI/maxresdefault.jpg"
           ),
           Container(
             child: Column(children: [
