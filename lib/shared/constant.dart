@@ -1,6 +1,3 @@
 import 'package:flutter/material.dart';
 
-
-  abstract class Styles {
-
-  }
+abstract class Styles {}
