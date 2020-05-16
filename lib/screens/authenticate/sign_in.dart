@@ -2,6 +2,7 @@ import 'package:engapp/services/auth.dart';
 import 'package:engapp/shared/loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SignIn extends StatefulWidget {
 
@@ -26,6 +27,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 30),
         width: double.infinity,
@@ -52,7 +54,9 @@ class _SignInState extends State<SignIn> {
                  FlatButton.icon(
                   onPressed: () {widget.toggleView();},
                      icon: Icon(Icons.person, color: Colors.white),
-                     label: Text('Register', style: TextStyle(color: Colors.white))
+                     label: Text('Register', style: TextStyle(color: Colors.white),
+                         textDirection: TextDirection.ltr,
+                         textAlign: TextAlign.center)
                  ),
                 ],
               ),
