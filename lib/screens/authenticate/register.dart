@@ -1,4 +1,5 @@
 import 'package:engapp/shared/loading.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:engapp/services/auth.dart';
 
@@ -25,7 +26,8 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
-      body: Container(
+        resizeToAvoidBottomPadding: false,
+        body: Container(
         padding: EdgeInsets.symmetric(vertical: 30),
         width: double.infinity,
         decoration: BoxDecoration(
@@ -38,8 +40,7 @@ class _RegisterState extends State<Register> {
                 ]
             )
         ),
-        child: Column (
-        crossAxisAlignment: CrossAxisAlignment.start,
+           child: Column (
         children: <Widget>[
         SizedBox(height: 30,),
         Padding(
@@ -49,7 +50,9 @@ class _RegisterState extends State<Register> {
         FlatButton.icon(
         onPressed: () {widget.toggleView();},
             icon: Icon(Icons.person, color: Colors.white),
-            label: Text('Sign up', style: TextStyle(color: Colors.white))
+            label: Text('Sign up',
+              style: TextStyle(color: Colors.white),
+            )
               ),
             ],
           ),
@@ -153,7 +156,7 @@ class _RegisterState extends State<Register> {
     ),
     ],
     ),
-    ),
+      ),
     );
   }
 }
