@@ -9,8 +9,9 @@ class WordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(6.0),
       child: Card(
+        elevation: 4,
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
           title: Text(
@@ -63,7 +64,7 @@ class WordCard extends StatelessWidget {
                     FlatButton(
                        child: Text(
                         'Close',
-                        style: TextStyle(color: Colors.green[800], fontSize: 18.0),
+                        style: TextStyle(color: Colors.lightBlue[900], fontSize: 18.0),
                         ),
                       onPressed: () {Navigator.pop(context);},
                     ),
