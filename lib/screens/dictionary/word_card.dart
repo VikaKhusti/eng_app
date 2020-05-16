@@ -12,6 +12,7 @@ class WordCard extends StatelessWidget {
       padding: EdgeInsets.all(6.0),
       child: Card(
         elevation: 4,
+        color: Colors.lightBlue[50],
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
           title: Text(
@@ -31,6 +32,7 @@ class WordCard extends StatelessWidget {
               context: context,
               builder: (BuildContext) {
                 return AlertDialog(
+                  elevation: 4,
                   title: Text(
                      word.word,
                      textAlign: TextAlign.center,
