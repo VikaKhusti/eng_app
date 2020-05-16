@@ -8,8 +8,9 @@ class WordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(6.0),
       child: Card(
+        elevation: 4,
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
           title: Text(
@@ -54,9 +55,24 @@ class WordCard extends StatelessWidget {
                             'Delete',
                             style: TextStyle(color: Colors.red, fontSize: 18.0),
                           ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
+
+                        )
+                      ],
+                    ),
+                  ),
+                 actions: <Widget>[
+                   FlatButton(
+                     child: Text(
+                       'Delete',
+                       style: TextStyle(color: Colors.red, fontSize: 18.0),
+                     ),
+                     onPressed: () {Navigator.pop(context);},
+                   ),
+                    FlatButton(
+                       child: Text(
+                        'Close',
+                        style: TextStyle(color: Colors.lightBlue[900], fontSize: 18.0),
+
                         ),
                         FlatButton(
                           child: Text(
