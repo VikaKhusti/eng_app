@@ -29,6 +29,7 @@ dependencies:
   flutter_spinkit: "^4.1.2"
   random_string: ^2.0.1
   rflutter_alert:
+  flutter_speed_dial: ^1.2.5
 
 dev_dependencies:
   flutter_test:
