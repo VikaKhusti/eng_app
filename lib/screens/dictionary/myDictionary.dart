@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:engapp/models/word.dart';
 import 'package:engapp/models/user.dart';
 import 'package:engapp/screens/dictionary/words_list.dart';
+import 'package:engapp/screens/tasks/quick-test.dart';
 import 'package:engapp/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +119,11 @@ class _MyDictionaryState extends State<MyDictionary> {
                   fontWeight: FontWeight.w500,
                   fontSize: 16.0
               ),
-              onTap: () {}
+              onTap: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => QuickTest()),
+                );
+              }
             )
           ],
         ),
