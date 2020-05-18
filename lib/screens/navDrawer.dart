@@ -23,8 +23,7 @@ class NavDrawer extends StatelessWidget {
             leading: Icon(Icons.bookmark),
             title: Text('My Dictionary'),
             onTap: () => {
-              Navigator.push(
-                context,
+              Navigator.push(context,
                 MaterialPageRoute(builder: (context) => MyDictionary()),
               )
             },
