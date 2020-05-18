@@ -24,20 +24,52 @@ class _TestCardState extends State<TestCard> {
   bool randBool() {
     return random.nextBool();
   }
+
+  List<bool> rightAnswers = [];
+  List<bool> userAnswers = [];
   
   int randIndex(index) {
     if(randBool()) {
+      rightAnswers.add(true);
       return index;
     }
     else {
+      rightAnswers.add(false);
       return random.nextInt(9);
     }
   }
 
+  int checkResults(List l1, List l2) {
+    int result = 0;
+    for( int i = 0; i <10; i++){
+      if(l1[i] == l2[i]){
+        result += 1;
+      }
+    }
+    return result;
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: FutureBuilder(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lightBlue[900],
+        elevation: 2,
+        title: Text('Quick Test'),
+        actions: <Widget>[
+          FlatButton (
+            color: Colors.white,
+            textColor: Colors.lightBlue[900],
+            child: Text('Check'),
+            onPressed:() => showDialog(
+              context: context,
+              builder: (context) => myAlert(),
+            )
+          )
+        ],
+      ),
+      body: FutureBuilder(
         future: getWords(),
           builder: (context, snapchot ){
           return ListView.builder(
@@ -64,16 +96,64 @@ class _TestCardState extends State<TestCard> {
                           new ListTile(
                             title: Text(snapchot.data[index].data["word"]),
                             subtitle: Text(snapchot.data[randIndex(index)].data["translate"]),
-                            
-                          )
+                            onTap: () {
+                              print(rightAnswers);
+                            },
+                          ),
+                          ButtonBar(
+                            children: <Widget>[
+                              FlatButton(
+                                textColor: Colors.red,
+                                child: Text('Wrong'),
+                                onPressed: (){
+                                  userAnswers.add(false);
+                                },
+                              ),
+                              FlatButton(
+                                textColor: Colors.green,
+                                child: Text('Right'),
+                                onPressed: () {
+                                  userAnswers.add(true);
+                                },
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
                   );
               });
-
       }
      ),
     );
   }
+
+  //ToDo
+  //зробти цей алєрт хоч трохи презентабельним
+  Widget myAlert() {
+    return  AlertDialog(
+      title: Text(
+        'Your result',
+        style: TextStyle(
+          fontSize: 20.0,
+        ),
+      ),
+      content: Text(
+        checkResults(rightAnswers, userAnswers).toString(),
+        style: TextStyle(
+          fontSize: 16.0,
+        ),
+      ),
+      actions: <Widget>[
+        FlatButton(
+          child: Text('Ok'),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ],
+    );
+  }
+
 }
+
