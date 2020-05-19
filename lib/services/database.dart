@@ -51,6 +51,14 @@ class DatabaseService {
     return await Firestore.instance.collection("Tasks").snapshots();
   }
 
+  getQuestionData(String taskId) async{
+    return await Firestore.instance
+        .collection("Tasks")
+        .document(taskId)
+        .collection("TNA")
+        .getDocuments();
+  }
+
 
 
 
