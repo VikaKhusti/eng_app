@@ -42,14 +42,22 @@ class DatabaseService {
     });
   }
 
-  Future<void> addQuestionData(Map questionData, String taskId) async{
+  Future<void> addQuestionData(taskData, String taskId) async{
     await Firestore.instance.collection("Tasks")
-        .document(taskId).collection("TNA")
-        .add(questionData).catchError((e){
+        .document(taskId).collection("QNA")
+        .add(taskData).catchError((e){
           print(e);
     });
   }
   getTaskData() async{
     return await Firestore.instance.collection("Tasks").snapshots();
+  }
+
+  getQuestionData(String taskId) async{
+    return await Firestore.instance
+        .collection("Tasks")
+        .document(taskId)
+        .collection("TNA")
+        .getDocuments();
   }
 }
