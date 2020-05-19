@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:engapp/services/auth.dart';
 
 class Register extends StatefulWidget {
-
   final Function toggleView;
   Register({this.toggleView});
 
@@ -13,7 +12,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
@@ -42,18 +40,18 @@ class _RegisterState extends State<Register> {
         ),
            child: Column (
         children: <Widget>[
-        SizedBox(height: 30,),
-        Padding(
-        padding: EdgeInsets.all(10),
-        child: Column(
-            children: <Widget>[
-        FlatButton.icon(
-        onPressed: () {widget.toggleView();},
-            icon: Icon(Icons.person, color: Colors.white),
-            label: Text('Sign up',
-              style: TextStyle(color: Colors.white),
-            )
-              ),
+                SizedBox(height: 30,),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                      children: <Widget>[
+                    FlatButton.icon(
+                      onPressed: () {widget.toggleView();},
+                          icon: Icon(Icons.person, color: Colors.white),
+                          label: Text('Sign up',
+                            style: TextStyle(color: Colors.white),
+                    )
+                      ),
             ],
           ),
         ),

@@ -38,7 +38,6 @@ class NavDrawer extends StatelessWidget {
             title: Text('Settings'),
             onTap: () => {Navigator.of(context).pop()},
           ),
-
         ],
       ),
     );

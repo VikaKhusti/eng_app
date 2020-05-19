@@ -12,3 +12,4 @@ class WordData {
 
   WordData({this.uid});
 }
+

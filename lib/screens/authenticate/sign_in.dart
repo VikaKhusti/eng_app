@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class SignIn extends StatefulWidget {
-
   final Function toggleView;
   SignIn({this.toggleView});
 
@@ -14,7 +13,6 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
@@ -159,5 +157,6 @@ class _SignInState extends State<SignIn> {
       ),
       ),
     );
+
   }
 }

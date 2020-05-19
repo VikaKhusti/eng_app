@@ -12,15 +12,13 @@ class WordsList extends StatefulWidget {
 class _WordsListState extends State<WordsList> {
   @override
   Widget build(BuildContext context) {
-    
     final words = Provider.of<List<Word>>(context);
 
     return ListView.builder(
-        itemCount: words.length,
-        itemBuilder: (context, index) {
-          return WordCard(word: words[index]);
-        },
-
+      itemCount: words.length,
+      itemBuilder: (context, index) {
+        return WordCard(word: words[index]);
+      },
     );
   }
 }

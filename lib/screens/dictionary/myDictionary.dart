@@ -4,7 +4,6 @@ import 'package:engapp/models/user.dart';
 import 'package:engapp/screens/dictionary/words_list.dart';
 import 'package:engapp/screens/tasks/quick-test.dart';
 import 'package:engapp/services/database.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -16,7 +15,6 @@ class MyDictionary extends StatefulWidget {
 }
 
 class _MyDictionaryState extends State<MyDictionary> {
-
   String word;
   String translation;
   String synonyms;
@@ -35,7 +33,6 @@ class _MyDictionaryState extends State<MyDictionary> {
           backgroundColor: Colors.lightBlue[900],
           elevation: 2,
           title: Text('My Dictionary'),
-
         ),
         body: WordsList(),
         floatingActionButton: SpeedDial(

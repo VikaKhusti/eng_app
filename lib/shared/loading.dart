@@ -12,6 +12,7 @@ class Loading extends StatelessWidget {
           size: 50.0,
         )
       ),
+
     );
   }
 }

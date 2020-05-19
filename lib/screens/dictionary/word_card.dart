@@ -17,7 +17,7 @@ class WordCard extends StatelessWidget {
           title: Text(
             word.word,
             style: TextStyle(
-                fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.bold,
             ),
           ),
           subtitle: Text(
@@ -28,51 +28,51 @@ class WordCard extends StatelessWidget {
           ),
           onTap: () {
             showDialog(
-              context: context,
-              builder: (BuildContext) {
-                return AlertDialog(
-                  title: Text(
-                     word.word,
-                     textAlign: TextAlign.center,
-                     style: TextStyle(
-                      fontSize: 25.0
-                     ),
-                  ),
-                  content: SingleChildScrollView(
-                    child: ListBody(
-                      children: <Widget>[
-                        Text(word.translate),
-                        Text(''),
-                        Text(
-                          word.synonyms,
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic,
-                              color: Colors.black.withOpacity(0.6)
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                 actions: <Widget>[
-                   FlatButton(
-                     child: Text(
-                       'Delete',
-                       style: TextStyle(color: Colors.red, fontSize: 18.0),
-                     ),
-                     onPressed: () {Navigator.pop(context);},
-                   ),
-                    FlatButton(
-                       child: Text(
-                        'Close',
-                        style: TextStyle(color: Colors.lightBlue[900], fontSize: 18.0),
+                context: context,
+                builder: (BuildContext) {
+                  return AlertDialog(
+                      title: Text(
+                        word.word,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 25.0
                         ),
-                      onPressed: () {Navigator.pop(context);},
-                    ),
+                      ),
+                      content: SingleChildScrollView(
+                        child: ListBody(
+                          children: <Widget>[
+                            Text(word.translate),
+                            Text(''),
+                            Text(
+                              word.synonyms,
+                              style: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.black.withOpacity(0.6)
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      actions: <Widget>[
+                        FlatButton(
+                          child: Text(
+                            'Delete',
+                            style: TextStyle(color: Colors.red, fontSize: 18.0),
+                          ),
+                          onPressed: () {Navigator.pop(context);},
+                        ),
+                        FlatButton(
+                          child: Text(
+                            'Close',
+                            style: TextStyle(color: Colors.lightBlue[900], fontSize: 18.0),
+                          ),
+                          onPressed: () {Navigator.pop(context);},
+                        ),
 
-                 ]
-                );
+                      ]
+                  );
 
-              }
+                }
             );
           },
         ),

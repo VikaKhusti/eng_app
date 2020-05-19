@@ -1,4 +1,5 @@
 import 'package:engapp/screens/tasks/create_task.dart';
+import 'package:engapp/screens/tasks/performing_tasks.dart';
 import 'package:engapp/services/auth.dart';
 import 'package:engapp/screens/navDrawer.dart';
 import 'package:engapp/services/database.dart';
@@ -19,9 +20,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Side menu'),
       ),
-      body: Center(
-        child: Text('Side Menu Tutorial'),
-      ),
+
     );
   }
 }
@@ -38,16 +37,20 @@ class _HomeState extends State<Home> {
           return snapshot.data == null
               ? Container():
           ListView.builder(
+              shrinkWrap: true,
               itemCount: snapshot.data.documents.length,
               itemBuilder: (context, index){
-                return TaskTitle(
-                  imgUrl: snapshot.data.documents[index].data["taskImgurl"],
-                  desc: snapshot.data
-                      .documents[index]
-                      .data["taskDesc"],
-                  title: snapshot.data
-                      .documents[index]
-                      .data["taskTitle"],
+                return TaskPart(
+                    imgUrl: snapshot.data.documents[index].data["taskImgurl"],
+                    desc: snapshot.data
+                        .documents[index]
+                        .data["taskDesc"],
+                    title: snapshot.data
+                        .documents[index]
+                        .data["taskTitle"],
+                    taskId: snapshot.data
+                        .documents[index]
+                        .data["tskId"]
                 );
               }
           );
@@ -59,8 +62,8 @@ class _HomeState extends State<Home> {
   @override
   void initState(){
     databaseService.getTaskData().then((val){
+      taskStream = val;
       setState(() {
-        taskStream = val;
       });
     });
     super.initState();
@@ -69,11 +72,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.deepOrange[100],
       drawer: NavDrawer(),
       appBar: AppBar(
         title: Text('Daily English'),
-        backgroundColor: Colors.lightBlue[900],
+        backgroundColor: Colors.deepOrange[800],
         elevation: 0.0,
         actions: <Widget>[
           FlatButton.icon(
@@ -103,31 +106,43 @@ class _HomeState extends State<Home> {
   }
 }
 
-class TaskTitle extends StatelessWidget{
+class TaskPart extends StatelessWidget{
   final String imgUrl;
   final String title;
   final String desc;
+  final String taskId;
 
-  TaskTitle({@required this.imgUrl,
+  TaskPart({@required this.imgUrl,
     @required this.title,
-    @required this.desc});
+    @required this.desc,
+    @required this.taskId});
 
   @override
   Widget build(BuildContext context){
-    return Container(
-      height: 150,
-      child: Stack(
-        children: [
-          Image.network(
-              imgUrl
-          ),
-          Container(
-            child: Column(children: [
-              Text(title),
-              Text(desc)
-            ],),
-          )
-        ],
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(
+            builder: (context) => PerformingTasks(
+                taskId
+            )
+        ));
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 24),
+        height: 150,
+        child: Stack(
+          children: [
+            Image.network(
+                imgUrl
+            ),
+            Container(
+              child: Column(children: [
+                Text(title),
+                Text(desc)
+              ],),
+            )
+          ],
+        ),
       ),
     );
   }
