@@ -8,7 +8,7 @@ class TestCard extends StatefulWidget {
   @override
   _TestCardState createState() => _TestCardState();
 }
-
+  int count;
 class _TestCardState extends State<TestCard> {
 
   Future getWords() async {
@@ -16,8 +16,11 @@ class _TestCardState extends State<TestCard> {
     var firestore = Firestore.instance;
 
     QuerySnapshot wordsSnap = await firestore.collection('words').document(user.uid).collection('words').getDocuments();
+    count = wordsSnap.documents.length;
     return wordsSnap.documents;
+
   }
+
 
   var random = new Random();
   
@@ -41,13 +44,14 @@ class _TestCardState extends State<TestCard> {
 
   int checkResults(List l1, List l2) {
     int result = 0;
-    for( int i = 0; i <10; i++){
+    for( int i = 0; i <count; i++){
       if(l1[i] == l2[i]){
         result += 1;
       }
     }
     return result;
   }
+
 
 
   @override
@@ -73,7 +77,7 @@ class _TestCardState extends State<TestCard> {
         future: getWords(),
           builder: (context, snapchot ){
           return ListView.builder(
-            itemCount: 10,
+            itemCount: count,
               itemBuilder: (context, index){
                   return Container(
                     padding: EdgeInsets.fromLTRB(10,10,10,0),
@@ -84,7 +88,8 @@ class _TestCardState extends State<TestCard> {
                         side: new BorderSide(color: Colors.blue, width: 2.0),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
-                      color: Colors.white, elevation: 2,
+                      color: Colors.white,
+                      elevation: 2,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         // !!!!!
@@ -98,6 +103,7 @@ class _TestCardState extends State<TestCard> {
                             subtitle: Text(snapchot.data[randIndex(index)].data["translate"]),
                             onTap: () {
                               print(rightAnswers);
+
                             },
                           ),
                           ButtonBar(
