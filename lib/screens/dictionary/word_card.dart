@@ -11,6 +11,7 @@ class WordCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(6.0),
       child: Card(
+        color: Colors.lightBlue[50],
         elevation: 4,
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
@@ -41,7 +42,13 @@ class WordCard extends StatelessWidget {
                       content: SingleChildScrollView(
                         child: ListBody(
                           children: <Widget>[
-                            Text(word.translate),
+                            Text(
+                                word.translate,
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  color: Colors.black.withOpacity(0.7)
+                              ),
+                            ),
                             Text(''),
                             Text(
                               word.synonyms,

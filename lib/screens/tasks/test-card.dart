@@ -57,6 +57,7 @@ class _TestCardState extends State<TestCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         backgroundColor: Colors.lightBlue[900],
         elevation: 2,
@@ -79,10 +80,11 @@ class _TestCardState extends State<TestCard> {
           return ListView.builder(
             itemCount: count,
               itemBuilder: (context, index){
-                  return Container(
+                  return SingleChildScrollView(
                     padding: EdgeInsets.fromLTRB(10,10,10,0),
-                    height: 150,
+//                    height: 150,
                     //title: Text(snapchot.data[index].data["word"]),
+
                     child: Card(
                       shape: RoundedRectangleBorder(
                         side: new BorderSide(color: Colors.blue, width: 2.0),
@@ -139,20 +141,22 @@ class _TestCardState extends State<TestCard> {
   Widget myAlert() {
     return  AlertDialog(
       title: Text(
-        'Your result',
+        'Your result is',
+        textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 20.0,
+          fontSize: 21.0,
         ),
       ),
       content: Text(
         checkResults(rightAnswers, userAnswers).toString(),
+        textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 16.0,
+          fontSize: 19.0,
         ),
       ),
       actions: <Widget>[
         FlatButton(
-          child: Text('Ok'),
+          child: Text('Ok ;)'),
           onPressed: () {
             Navigator.of(context).pop();
           },
