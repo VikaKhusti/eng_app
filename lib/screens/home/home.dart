@@ -1,5 +1,4 @@
 import 'package:engapp/screens/tasks/sections.dart';
-import 'package:engapp/screens/widgets/widgets.dart';
 import 'package:engapp/services/auth.dart';
 import 'package:engapp/screens/navDrawer.dart';
 import 'package:engapp/services/database.dart';
@@ -18,7 +17,6 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text('Side menu'),
       ),
 
     );
@@ -55,7 +53,20 @@ class _HomeState extends State<Home> {
         ],
       ),
       body:
-    Text("Sections"));
+          Container(
+            child: Center(
+              child: FlatButton(
+                color: Colors.lightBlue[900],
+                child: Text("Test", style: TextStyle(color: Colors.white, fontSize: 18.0),),
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Sections()),
+                  );
+                },
+          ),
+            ),
+    )
+          );
   }
 }
 
