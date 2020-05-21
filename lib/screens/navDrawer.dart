@@ -9,34 +9,34 @@ class NavDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text(
-              'Side menu',
-              style: TextStyle(color: Colors.white, fontSize: 25),
-            ),
             decoration: BoxDecoration(
-                color: Colors.deepOrange[800],
+                color: Colors.lightBlue[50],
                 image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('assets/images/avatar.jpg'))),
           ),
           ListTile(
             leading: Icon(Icons.bookmark),
-            title: Text('My Dictionary'),
+            title: Text(
+                'My Dictionary',
+              style: TextStyle(fontSize: 15.0),
+            ),
             onTap: () => {
-              Navigator.push(
-                context,
+              Navigator.push(context,
                 MaterialPageRoute(builder: (context) => MyDictionary()),
               )
             },
           ),
           ListTile(
             leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
+            title: Text('Profile',
+              style: TextStyle(fontSize: 15.0),),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            title: Text('Settings',
+              style: TextStyle(fontSize: 15.0),),
             onTap: () => {Navigator.of(context).pop()},
           ),
         ],

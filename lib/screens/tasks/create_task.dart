@@ -34,7 +34,7 @@ class _CreateTaskState extends State<CreateTask> {
           _isLoading = false;
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => AddQuestion(
-            taskId
+              taskId
           )));
         });
       });
@@ -66,67 +66,67 @@ class _CreateTaskState extends State<CreateTask> {
       ),
       body: _isLoading
           ? Container(
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            )
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      )
           : Form(
-              key: _formKey,
-              child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        validator: (val) =>
-                            val.isEmpty ? "Enter Image Url" : null,
-                        decoration: InputDecoration(
-                          hintText: "Task Image Url",
-                        ),
-                        onChanged: (val) {
-                          taskImageUrl = val;
-                        },
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      TextFormField(
-                        validator: (val) =>
-                            val.isEmpty ? "Enter Task Title" : null,
-                        decoration: InputDecoration(
-                          hintText: "Task Title",
-                        ),
-                        onChanged: (val) {
-                          taskTitle = val;
-                        },
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      TextFormField(
-                        validator: (val) =>
-                            val.isEmpty ? "Enter Task Description" : null,
-                        decoration: InputDecoration(
-                          hintText: "Task Description",
-                        ),
-                        onChanged: (val) {
-                          taskDescription = val;
-                        },
-                      ),
-                      Spacer(),
-                      GestureDetector(
-                          onTap: () {
-                            createTaskOnline();
-                          },
-                          child: orangeButton(
-                            context: context,
-                            label: "Create Task"
-                              )),
-                      SizedBox(
-                        height: 60,
-                      ),
-                    ],
-                  )),
-            ),
+        key: _formKey,
+        child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              children: [
+                TextFormField(
+                  validator: (val) =>
+                  val.isEmpty ? "Enter Image Url" : null,
+                  decoration: InputDecoration(
+                    hintText: "Task Image Url",
+                  ),
+                  onChanged: (val) {
+                    taskImageUrl = val;
+                  },
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                TextFormField(
+                  validator: (val) =>
+                  val.isEmpty ? "Enter Task Title" : null,
+                  decoration: InputDecoration(
+                    hintText: "Task Title",
+                  ),
+                  onChanged: (val) {
+                    taskTitle = val;
+                  },
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                TextFormField(
+                  validator: (val) =>
+                  val.isEmpty ? "Enter Task Description" : null,
+                  decoration: InputDecoration(
+                    hintText: "Task Description",
+                  ),
+                  onChanged: (val) {
+                    taskDescription = val;
+                  },
+                ),
+                Spacer(),
+                GestureDetector(
+                    onTap: () {
+                      createTaskOnline();
+                    },
+                    child: orangeButton(
+                        context: context,
+                        label: "Create Task"
+                    )),
+                SizedBox(
+                  height: 60,
+                ),
+              ],
+            )),
+      ),
     );
   }
 }
