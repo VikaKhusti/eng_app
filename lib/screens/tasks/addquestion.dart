@@ -143,8 +143,8 @@ class _AddQuestionState extends State<AddQuestion> {
                     Navigator.pop(context);
                   },
                   child: orangeButton(context: context,
-                    label: "Submit",
-                    buttonWidth: MediaQuery.of(context).size.width/2 - (36)
+                      label: "Submit",
+                      buttonWidth: MediaQuery.of(context).size.width/2 - (36)
                   ),
                 ),
                 SizedBox(width: 24,),

@@ -40,11 +40,11 @@ class DatabaseService {
     });
   }
 
-  Future<void> addQuestionData(Map questionData, String taskId) async{
+  Future<void> addQuestionData(taskData, String taskId) async{
     await Firestore.instance.collection("Tasks")
         .document(taskId).collection("TNA")
-        .add(questionData).catchError((e){
-      print(e);
+        .add(taskData).catchError((e){
+          print(e);
     });
   }
   getTaskData() async{
@@ -62,6 +62,7 @@ class DatabaseService {
 
 
 
+
 //get words stream
   Stream<List<Word>> get words {
     return wordsCollection.document(uid).collection("words").snapshots()
@@ -73,5 +74,6 @@ class DatabaseService {
   Stream<DocumentSnapshot> get userData{
     return wordsCollection.document(uid).snapshots();
   }
+
 
 }
