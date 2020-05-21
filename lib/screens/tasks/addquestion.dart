@@ -46,9 +46,9 @@ class _AddQuestionState extends State<AddQuestion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrange[100],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.deepOrange[800],
+        backgroundColor: Colors.lightBlue[900],
         elevation: 0.0,
         title: Text('Create Task'),
         actions: <Widget>[
@@ -84,7 +84,7 @@ class _AddQuestionState extends State<AddQuestion> {
               },
             ),
             SizedBox(
-              height: 6,
+              height: 5,
             ),
             TextFormField(
               validator: (val) =>
@@ -97,7 +97,7 @@ class _AddQuestionState extends State<AddQuestion> {
               },
             ),
             SizedBox(
-              height: 6,
+              height: 8,
             ),
             TextFormField(
               validator: (val) =>
@@ -110,7 +110,7 @@ class _AddQuestionState extends State<AddQuestion> {
               },
             ),
             SizedBox(
-              height: 6,
+              height: 8,
             ),
             TextFormField(
               validator: (val) =>
@@ -123,7 +123,7 @@ class _AddQuestionState extends State<AddQuestion> {
               },
             ),
             SizedBox(
-              height: 6,
+              height: 8,
             ),
             TextFormField(
               validator: (val) =>
@@ -142,7 +142,7 @@ class _AddQuestionState extends State<AddQuestion> {
                   onTap: (){
                     Navigator.pop(context);
                   },
-                  child: orangeButton(context: context,
+                  child: BlueButton(context: context,
                       label: "Submit",
                       buttonWidth: MediaQuery.of(context).size.width/2 - (36)
                   ),
@@ -153,7 +153,7 @@ class _AddQuestionState extends State<AddQuestion> {
                   onTap: (){
                     uploadQuestionData();
                   },
-                  child: orangeButton(context: context,
+                  child: BlueButton(context: context,
                       label: "Add Question",
                       buttonWidth: MediaQuery.of(context).size.width/2 - 36
                   ),

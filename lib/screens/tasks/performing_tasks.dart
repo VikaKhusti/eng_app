@@ -66,15 +66,17 @@ class _PerformingTasksState extends State<PerformingTasks>{
 
       });
     });
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context){
+
     return Scaffold(
-      backgroundColor: Colors.deepOrange[100],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.deepOrange[800],
+        backgroundColor: Colors.lightBlue[900],
         elevation: 0.0,
         title: Text('Task'),
         actions: [
@@ -93,7 +95,8 @@ class _PerformingTasksState extends State<PerformingTasks>{
         ],
       ),
       body:
-      Container(
+      SingleChildScrollView(
+      child: Container(
         child: Column(
           children: [
             SizedBox(
@@ -119,7 +122,7 @@ class _PerformingTasksState extends State<PerformingTasks>{
             )
           ],
         ),
-      ),
+      ),),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
         onPressed: (){

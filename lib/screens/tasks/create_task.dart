@@ -44,9 +44,9 @@ class _CreateTaskState extends State<CreateTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrange[100],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.deepOrange[800],
+        backgroundColor: Colors.lightBlue[900],
         elevation: 0.0,
         title: Text('Create Task'),
         actions: <Widget>[
@@ -117,7 +117,7 @@ class _CreateTaskState extends State<CreateTask> {
                     onTap: () {
                       createTaskOnline();
                     },
-                    child: orangeButton(
+                    child: BlueButton(
                         context: context,
                         label: "Create Task"
                     )),
