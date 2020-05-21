@@ -1,3 +1,5 @@
+import 'package:engapp/screens/dictionary/myDictionary.dart';
+import 'package:engapp/screens/tasks/quick-test.dart';
 import 'package:engapp/screens/tasks/sections.dart';
 import 'package:engapp/services/auth.dart';
 import 'package:engapp/screens/navDrawer.dart';
@@ -54,16 +56,45 @@ class _HomeState extends State<Home> {
       ),
       body:
           Container(
-            child: Center(
-              child: FlatButton(
-                color: Colors.lightBlue[900],
-                child: Text("Test", style: TextStyle(color: Colors.white, fontSize: 18.0),),
-                onPressed: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Sections()),
-                  );
-                },
-          ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Row(
+
+                ),
+                new  FlatButton(
+
+                  color: Colors.lightBlue[900],
+                  child: Text("My Dictionary", style: TextStyle(color: Colors.white, fontSize: 18.0),),
+                  onPressed: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyDictionary()),
+                    );
+                  },
+                ),
+                new  FlatButton(
+                  color: Colors.lightBlue[900],
+                  child: Text("Quick Test", style: TextStyle(color: Colors.white, fontSize: 18.0),),
+                  onPressed: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => QuickTest()),
+                    );
+                  },
+                ),
+                new  FlatButton(
+                  color: Colors.lightBlue[900],
+                  child: Text("Test", style: TextStyle(color: Colors.white, fontSize: 18.0),),
+                  onPressed: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Sections()),
+                    );
+                  },
+                ),
+
+
+              ],
+
             ),
     )
           );
