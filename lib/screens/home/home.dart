@@ -52,7 +52,7 @@ class _HomeState extends State<Home> {
                           .data["taskTitle"],
                       taskId: snapshot.data
                           .documents[index]
-                          .data["tskId"]
+                          .data["taskId"]
                     );
                   }
               );
