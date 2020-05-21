@@ -42,14 +42,16 @@ class _TestCardState extends State<TestCard> {
     }
   }
 
-  int checkResults(List l1, List l2) {
+  String checkResults(List l1, List l2) {
+    String res = '';
     int result = 0;
     for( int i = 0; i <count; i++){
       if(l1[i] == l2[i]){
         result += 1;
       }
     }
-    return result;
+    res = '$result / $count';
+    return res;
   }
 
 
