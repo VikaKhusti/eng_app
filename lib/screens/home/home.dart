@@ -84,7 +84,7 @@ class _HomeState extends State<Home> {
                 ),
                 new  FlatButton(
                   color: Colors.lightBlue[900],
-                  child: Text("Test", style: TextStyle(color: Colors.white, fontSize: 18.0),),
+                  child: Text("Rubric quizzes", style: TextStyle(color: Colors.white, fontSize: 18.0),),
                   onPressed: () {
                     Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Sections()),
@@ -94,7 +94,6 @@ class _HomeState extends State<Home> {
 
 
               ],
-
             ),
     )
           );

@@ -20,16 +20,19 @@ class _ResultsState extends State<Results> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-            Text("${widget.correct}/${widget.total}"),
+            Text("${widget.correct}/${widget.total}", style: TextStyle(fontSize: 25)),
             SizedBox(height: 8,),
             Text("You answered ${widget.correct} answers correctly "
-                "and ${widget.incorrect} answers incorrectly"
+                "and ${widget.incorrect} answers incorrectly",
+              style: TextStyle(fontSize: 15, color: Colors.black),
+              textAlign: TextAlign.center,
             ),
+              SizedBox(height: 14,),
               GestureDetector(
               onTap: (){
                 Navigator.pop(context);
               },
-              child: orangeButton(context: context, label: "Go to Home"),
+              child: BlueButton(context: context, label: "Go to Rubric quizzes", buttonWidth: MediaQuery.of(context).size.width/2),
               )
           ],),
         ),
